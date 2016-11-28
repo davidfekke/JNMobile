@@ -9,6 +9,11 @@ import {
 
 var NextMeeting = React.createClass({
     getInitialState () {
+        return {
+            meeting: { name: 'Next Meeting' }
+        };
+    },
+    componentWillMount: function() {
         fetch('https://www.jaxnode.com/v1/api/meeting')
             .then(response => {
                 return response.json();
@@ -17,9 +22,6 @@ var NextMeeting = React.createClass({
                 console.log(json);
                 this.setState(Object.assign({}, this.state, { meeting: json.meeting }));
             });
-        return {
-            meeting: { name: 'Next Meeting' }
-        };
     },
     render: function() {
         return (

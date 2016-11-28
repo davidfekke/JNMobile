@@ -10,14 +10,13 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View,
-  Image
+  View
 } from 'react-native';
 
 export default class JNMobile extends Component {
   render() {
     return (
-      <Welcome />
+        <Welcome />
     );
   }
 }
