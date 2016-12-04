@@ -13,6 +13,7 @@ import {
   TabNavigation,
   TabNavigationItem as TabItem,
 } from '@exponent/ex-navigation';
+import Colors from './Colors';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import NextMeeting from './NextMeeting';
@@ -42,9 +43,9 @@ export default class TabScreen extends React.Component {
         initialTab="home">
         <TabItem
           id="home"
-          title="Home"
+          
           selectedStyle={styles.selectedTab}
-          renderIcon={(isSelected) => <Icon name="md-home" color="#000000" />}
+          renderIcon={(isSelected)  => this._renderIcon('Home', 'md-home', isSelected)}
           >
           <StackNavigation
             id="home"
@@ -55,9 +56,9 @@ export default class TabScreen extends React.Component {
 
         <TabItem
           id="meeting"
-          title="Meeting"
+          
           selectedStyle={styles.selectedTab}
-          renderIcon={(isSelected) => <Icon name="ios-people" color="#000000" />}
+          renderIcon={isSelected => this._renderIcon('Meeting', 'ios-people', isSelected)}
           >
           <StackNavigation
             id="meeting"
@@ -67,9 +68,9 @@ export default class TabScreen extends React.Component {
 
         <TabItem
           id="sponsors"
-          title="Sponsors"
+          
           selectedStyle={styles.selectedTab}
-          renderIcon={(isSelected) => <Icon name="ios-basketball" color="#000000" />}
+          renderIcon={isSelected => this._renderIcon('Sponsors', 'ios-basketball', isSelected)}
           >
           <StackNavigation
             id="sponsors"
@@ -79,9 +80,9 @@ export default class TabScreen extends React.Component {
 
         <TabItem
           id="about"
-          title="About"
+          
           selectedStyle={styles.selectedTab}
-          renderIcon={(isSelected) => <Icon name="ios-alert" color="#000000" />}
+          renderIcon={isSelected => this._renderIcon('About', 'ios-alert', isSelected)}
           >
           <StackNavigation
             id="about"
@@ -90,6 +91,20 @@ export default class TabScreen extends React.Component {
         </TabItem>
 
       </TabNavigation>
+    );
+  }
+
+  _renderIcon(title, iconName, isSelected) {
+    let color = isSelected ? Colors.tabIconSelected : Colors.tabIconDefault;
+
+    return (
+      <View style={styles.tabItemContainer}>
+        <Icon name={iconName} size={32} color={color} />
+
+        <Text style={[styles.tabTitleText, {color}]} numberOfLines={1}>
+          {title}
+        </Text>
+      </View>
     );
   }
 }
@@ -111,4 +126,11 @@ const styles = StyleSheet.create({
     color: '#333333',
     marginBottom: 5,
   },
+  tabItemContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  tabTitleText: {
+    fontSize: 11,
+  }
 });
