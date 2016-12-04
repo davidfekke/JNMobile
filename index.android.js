@@ -5,7 +5,6 @@
  */
 
 import React, { Component } from 'react';
-import Welcome from './welcome';
 import {
   AppRegistry,
   StyleSheet,
@@ -13,10 +12,26 @@ import {
   View
 } from 'react-native';
 
+import {
+  createRouter,
+  NavigationProvider,
+  StackNavigation,
+  TabNavigation,
+  TabNavigationItem as TabItem,
+} from '@exponent/ex-navigation';
+
+import TabScreen from './tabscreen';
+
+const Router = createRouter(() => ({
+  tabscreen: () => TabScreen
+}));
+
 export default class JNMobile extends Component {
   render() {
     return (
-        <Welcome />
+      <NavigationProvider router={Router}>
+        <StackNavigation initialRoute={Router.getRoute('tabscreen')} />
+      </NavigationProvider>
     );
   }
 }

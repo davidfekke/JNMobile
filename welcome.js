@@ -7,14 +7,16 @@ import {
   Image
 } from 'react-native';
 
+import styles from './standardstyles';
+
 const imagePath = 'https://www.jaxnode.com/images/jaxnodejs.png';
 
 var Welcome = React.createClass({
     render: function() {
         return (
             <View style={styles.container}>
-                <Image source={{uri: imagePath }} 
-                style={{ width: 216, height: 216 }}/>
+                <Image source={require('./assets/images/jaxnodejs.png')} style={{ width: 216, height: 216 }} /> 
+                
                 <Text style={styles.welcome}>
                 Welcome to JaxNode Mobile!
                 </Text>
@@ -24,25 +26,6 @@ var Welcome = React.createClass({
             </View>
         );
     }
-});
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: 20,
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  description: {
-      fontSize: 15,
-      textAlign: 'center',
-      margin: 10
-  }
 });
 
 export default Welcome;

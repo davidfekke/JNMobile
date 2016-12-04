@@ -6,13 +6,33 @@ import {
   View,
   Image
 } from 'react-native';
+import MapView from 'react-native-maps';
+import styles from './standardstyles';
+
+function removeTags(input) {
+    return input.replace(/<(?:.|\n)*?>/gm, '').replace(/^\s*[\r\n]/gm, '');
+}
 
 var NextMeeting = React.createClass({
     getInitialState () {
         return {
             meeting: { 
                 name: '', 
-                description: ''
+                description: '',
+                time: '',
+                headcount: 0,
+                venue: {
+                    country: '',
+                    localized_country_name: "USA",
+                    city: 'Jacksonville',
+                    address_1: 'Loading...',
+                    name: 'Loading...',
+                    lon: -81.531815,
+                    id: 19194672,
+                    state: 'FL',
+                    lat: 30.246962
+                    
+                }
         }
         };
     },
@@ -22,41 +42,40 @@ var NextMeeting = React.createClass({
                 return response.json();
             })
             .then(json => {
-                console.log(json);
+                console.log(removeTags(json.meeting.description.trim()));
                 this.setState(Object.assign({}, this.state, { meeting: json.meeting }));
             });
     },
     render: function() {
         return (
             <View style={styles.container}>
+                <MapView style={{ height: 100 }}
+                    initialRegion={{
+                    latitude: 37.78825,
+                    longitude: -122.4324,
+                    latitudeDelta: 0.0922,
+                    longitudeDelta: 0.0421,
+                    }}
+                />
                 <Text style={styles.welcome}>
                     {this.state.meeting.name}
                 </Text>
                 <Text style={styles.description}>
-                    Use this app to find out when the next meeting will be, get directions, find links to our sponsors and github code.
+                    {removeTags(this.state.meeting.description)}
                 </Text>
+                <Text>
+                    When: {this.state.meeting.time}
+                </Text>
+                <Text>
+                    {this.state.meeting.venue.address_1}
+                </Text>
+                <Text>
+                    {this.state.meeting.venue.city}, {this.state.meeting.venue.state}
+                </Text>
+                
             </View>
         );
     }
-});
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: 20,
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  description: {
-      fontSize: 15,
-      textAlign: 'center',
-      margin: 10
-  }
 });
 
 export default NextMeeting;

@@ -6,6 +6,8 @@ import {
   View
 } from 'react-native';
 
+import styles from './standardstyles';
+
 var About = React.createClass({
     render: function() {
         return (
@@ -20,25 +22,6 @@ Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. Node.js 
             </View>
         );
     }
-});
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: 20,
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  description: {
-      fontSize: 15,
-      textAlign: 'center',
-      margin: 10
-  }
 });
 
 export default About;
