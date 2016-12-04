@@ -10,7 +10,10 @@ import {
 var NextMeeting = React.createClass({
     getInitialState () {
         return {
-            meeting: { name: 'Next Meeting' }
+            meeting: { 
+                name: '', 
+                description: ''
+        }
         };
     },
     componentWillMount: function() {
