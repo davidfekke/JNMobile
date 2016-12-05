@@ -1,4 +1,4 @@
-const BRAND_COLOR = '#5C069A';
+const BRAND_COLOR = '#343433';
 const VERY_LIGHT_GREY = '#f5f5f5';
 const LIGHT_GREY = '#cccccc';
 const GREY = '#888';
