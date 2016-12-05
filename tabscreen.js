@@ -20,12 +20,14 @@ import NextMeeting from './NextMeeting';
 import Welcome from './welcome';
 import About from './about';
 import SponsorList from './sponsorlist';
+import MeetingMap from './MeetingMap';
 
 const Router = createRouter(() => ({
   home: () => Welcome,
   about: () => About,
   meeting: () => NextMeeting,
-  sponsors: () => SponsorList
+  sponsors: () => SponsorList,
+  map: () => MeetingMap
 }));
 
 export default class TabScreen extends React.Component {

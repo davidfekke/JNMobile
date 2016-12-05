@@ -17,6 +17,9 @@ const styles = StyleSheet.create({
       fontSize: 15,
       textAlign: 'center',
       margin: 10
+  },
+  generalText: {
+    margin: 10
   }
 });
 
