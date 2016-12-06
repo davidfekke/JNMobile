@@ -57,8 +57,9 @@ var NextMeeting = React.createClass({
                     longitudeDelta: 0.0421
                 };
                 this.setState(Object.assign({}, this.state, { meeting: json.meeting }, {region: tempRegion }));
-                this.map.animateToRegion(tempRegion);
-                console.log(this.state.region.longitude);
+                if (this.map !== null && this.map !== undefined) {
+                    this.map.animateToRegion(tempRegion);
+                }
             });
     },
     render: function() {
