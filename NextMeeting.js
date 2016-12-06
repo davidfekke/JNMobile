@@ -37,8 +37,8 @@ var NextMeeting = React.createClass({
                 }
             },
             region: {
-                latitude: 37.746962,
-                longitude: -122.4324,
+                latitude: 30.246962,
+                longitude: -81.531815,
                 latitudeDelta: 0.0922,
                 longitudeDelta: 0.0421
             }

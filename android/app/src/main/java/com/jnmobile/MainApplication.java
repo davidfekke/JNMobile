@@ -1,4 +1,4 @@
-package com.jnmobile;
+package com.fekke.jnmobile;
 
 import android.app.Application;
 import android.util.Log;
