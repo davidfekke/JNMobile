@@ -6,7 +6,8 @@ import {
   Text,
   View,
   Image,
-  Animated
+  Animated,
+  ActivityIndicator
 } from 'react-native';
 import MapView from 'react-native-maps';
 import styles from './standardstyles';
@@ -18,6 +19,7 @@ function removeTags(input) {
 var NextMeeting = React.createClass({
     getInitialState () {
         return {
+            loading: true,
             meeting: { 
                 name: '', 
                 description: '',
@@ -27,12 +29,12 @@ var NextMeeting = React.createClass({
                 venue: {
                     country: '',
                     localized_country_name: "USA",
-                    city: 'Jacksonville',
-                    address_1: 'Loading...',
-                    name: 'Loading...',
+                    city: '',
+                    address_1: '',
+                    name: '',
                     lon: -81.531815,
                     id: 19194672,
-                    state: 'FL',
+                    state: '',
                     lat: 30.246962
                 }
             },
@@ -60,6 +62,10 @@ var NextMeeting = React.createClass({
                 if (this.map !== null && this.map !== undefined) {
                     this.map.animateToRegion(tempRegion);
                 }
+            }).catch(err => {
+                alert('An error occured loading the Map');
+            }).finally(() => {
+                this.setState(Object.assign({}, this.state, { loading: false }));
             });
     },
     render: function() {
@@ -97,7 +103,11 @@ var NextMeeting = React.createClass({
                     </Text>
                     <Text style={styles.generalText}>
                         {this.state.meeting.venue.city}, {this.state.meeting.venue.state}
-                    </Text>    
+                    </Text>
+                    <ActivityIndicator
+                        animating={this.state.loading}
+                        style={[styles.centering, {height: 80}]}
+                        size="large" />
                 </ScrollView>
                 
             
@@ -116,6 +126,11 @@ const mapStyles = StyleSheet.create({
     	   
     justifyContent: 'flex-end',
     alignItems: 'center'
+  },
+    centering: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 8,
   }
 });
 
