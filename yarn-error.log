@@ -1,14 +1,14 @@
 Arguments: 
-  /usr/local/bin/node /Users/davidfekke/.yarn/bin/yarn.js add react-native-maps
+  /usr/local/bin/node /usr/local/bin/yarn add react-native-push-notification
 
 PATH: 
-  /Users/davidfekke/.yarn/bin:/Users/davidfekke/Library/Android/sdk/tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet
+  /Users/davidfekke/Library/Android/sdk/tools:/Users/davidfekke/Library/Android/sdk/platform-tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet
 
 Yarn version: 
-  0.17.9
+  0.17.10
 
 Node version: 
-  7.2.0
+  7.2.1
 
 Platform: 
   darwin x64
