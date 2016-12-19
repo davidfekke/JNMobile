@@ -1,14 +1,14 @@
 Arguments: 
-  /usr/local/bin/node /Users/davidfekke/.yarn/bin/yarn.js add react-native-maps
+  /usr/local/bin/node /Users/davidfekke/.yarn/bin/yarn.js add react-native-onesignal
 
 PATH: 
-  /Users/davidfekke/.yarn/bin:/Users/davidfekke/Library/Android/sdk/tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet
+  /Users/davidfekke/.yarn/bin:/Users/davidfekke/Library/Android/sdk/tools:/Users/davidfekke/Library/Android/sdk/platform-tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet
 
 Yarn version: 
-  0.17.9
+  0.17.10
 
 Node version: 
-  7.2.0
+  7.2.1
 
 Platform: 
   darwin x64
@@ -5795,4 +5795,4 @@ Lockfile:
       chalk "^1.0.0"
 
 Trace: 
-  Error: EACCES: permission denied, open '/Users/davidfekke/Documents/node/projects/JNMobile/node_modules/react-native-maps/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.4.0/AndroidManifest.xml'
+  Error: EACCES: permission denied, open '/Users/davidfekke/Documents/node/projects/JNMobile/node_modules/react-native-maps/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/9.4.0/AndroidManifest.xml'
